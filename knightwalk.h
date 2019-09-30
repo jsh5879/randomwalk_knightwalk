@@ -1,4 +1,8 @@
-#pragma once
+/*
+학번:
+이름:
+
+*/
 /* knightwalk.h - knightm Walk에 필요한 header file */
 #pragma once
 #include <iostream>
@@ -9,6 +13,37 @@ struct Offsets {
 enum directions { NE, EN, ES, SE, SW, WS, WN, NW };
 Offsets Move[8] = { {1,-2},{2,-1},{2,1},{1,2},{-1,2},{-2,1},{-2,-1},{-1,-2} };
 //[g,h] <= [i,j], g = i + move[NE].a; h = j + move[NE].b;
+
+class Stack {
+	Offsets data[50];
+	int nElements;
+public:
+	Stack() :
+		nElements(0)
+	{}
+	void Push(Offsets elem);
+	Offsets Pop();
+	int Number();
+	int Empty();
+};
+void Stack::Push(Offsets elem) {
+	data[nElements] = elem;
+	nElements++;
+}
+
+Offsets Stack::Pop() {
+	nElements--;
+	return data[nElements];
+}
+
+int Stack::Number() {
+	return nElements;
+}
+
+int Stack::Empty() {
+	return (nElements == 0);
+}
+
 class Chessboard {
 public:
 	Chessboard(int row=8, int col=8);//체스판 배열을 생성자로 호출

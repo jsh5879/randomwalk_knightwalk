@@ -1,4 +1,8 @@
-/* randomwalk.cpp - random walk simulation */
+/* randomwalk.cpp - random walk simulation 
+학번:
+이름:
+github id:
+*/
 #include "randomwalk.h"
 void Goboard::Mark(const Offsets) {
 
