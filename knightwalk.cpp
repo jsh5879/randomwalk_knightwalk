@@ -123,12 +123,12 @@ void MarkNth(Chessboard g, const struct Offsets startPosition) {
 		newPosition.b = currentPosition.b + Move[knightMove].b;
 		if (!g.CheckBoundary(newPosition)) continue;
 		else {
-			if (!g.CheckNext(newPosition)) continue;
-			else if (!g.CheckNextZero(newPosition)) {
+			if (!g.CheckNextZero(newPosition)) { 
 				nthLevel++;
 				g.Mark(newPosition, nthLevel);
 				knightStack.Push(newPosition);
 				currentPosition = newPosition;
+				cout << g;
 			}
 			else
 				nthLevel--;
