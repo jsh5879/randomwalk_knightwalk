@@ -1,10 +1,10 @@
-/*
+/* knightwalk.h - knightm Walk에 필요한 header file 
 학번:
 이름:
-
+github id:
+knight(기사)가 현 위치에서 8가지 방향으로 random하게 이동한다.
 */
-/* knightwalk.h - knightm Walk에 필요한 header file */
-#pragma once
+
 #include <iostream>
 using namespace std;
 struct Offsets {
@@ -48,11 +48,10 @@ class Chessboard {
 public:
 	Chessboard(int row=8, int col=8);//체스판 배열을 생성자로 호출
 	void initialize();//체스판 배열의 각 cell = 0으로 초기화
-	Offsets Walk(Offsets now);//난수를 불러 now 다음 위치를 결정
-	int CheckComplete();//모든 cell이 nonzero면 종료
-	int CheckBoundary(Offsets nextPosition);
-	void Mark(const Offsets chess);
-	void MarkNth(const Offsets chess, int n);
+	int CheckComplete();//모든 cell이 nonzero면 return 1
+	int CheckBoundary(Offsets nextPosition);//(0<= a <= 7 && 0 <= b <= 7)이면 return 1
+	void SimpleMark(const Offsets chess);//(*Term)++; 한번 방문시마다 1 증가
+	void Mark(const Offsets chess, int n);//(*Term)++; 한번 방문시마다 1 증가
 	friend ostream& operator << (ostream& stream, Chessboard& s);
 private:
 	int rows, cols;
