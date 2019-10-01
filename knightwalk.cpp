@@ -32,6 +32,11 @@ int Chessboard::CheckBoundary(Offsets nextPosition)
 	else return 0;
 }
 int Chessboard::CheckNext(Offsets nextPosition) {
+	if (Term[nextPosition.a * cols + nextPosition.b] != 0)
+		return 0;
+	else return 1;
+}
+int Chessboard::CheckNextZero(Offsets nextPosition) {
 	if (Term[nextPosition.a * cols + nextPosition.b] == 0)
 		return 0;
 	else return 1;
@@ -118,16 +123,16 @@ void MarkNth(Chessboard g, const struct Offsets startPosition) {
 		newPosition.b = currentPosition.b + Move[knightMove].b;
 		if (!g.CheckBoundary(newPosition)) continue;
 		else {
-			if (!g.CheckNext(newPosition)) {
+			if (!g.CheckNext(newPosition)) continue;
+			else if (!g.CheckNextZero(newPosition)) {
 				nthLevel++;
 				g.Mark(newPosition, nthLevel);
 				knightStack.Push(newPosition);
 				currentPosition = newPosition;
 			}
-			else {
+			else
 				nthLevel--;
-
-			}
+				currentPosition = knightStack.Pop();
 		}
 	}
 	cout << g;

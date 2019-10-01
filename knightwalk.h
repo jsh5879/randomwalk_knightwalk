@@ -51,6 +51,7 @@ public:
 	int CheckComplete();//모든 cell이 nonzero면 return 1
 	int CheckBoundary(Offsets nextPosition);
 	int CheckNext(Offsets nextPosition);
+	int CheckNextZero(Offsets nextPosition);
 	//(0<= a <= 7 && 0 <= b <= 7)이면 return 1
 	void SimpleMark(const Offsets chess);//(*Term)++; 한번 방문시마다 1 증가
 	void Mark(const Offsets chess, int n);//(*Term)++; 한번 방문시마다 1 증가
