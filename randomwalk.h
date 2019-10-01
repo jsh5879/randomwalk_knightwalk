@@ -1,7 +1,7 @@
 /* randomwalk.h - random Walk에 필요한 header file 
-학번:
-이름:
-github id:
+학번: 201524561
+이름: 장석환
+github id: jsh5879
 worm(벌레)가 현 위치에서 8가지 방향으로 random하게 이동한다.
 */
 
