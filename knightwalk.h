@@ -49,7 +49,9 @@ public:
 	Chessboard(int row=8, int col=8);//체스판 배열을 생성자로 호출
 	void initialize();//체스판 배열의 각 cell = 0으로 초기화
 	int CheckComplete();//모든 cell이 nonzero면 return 1
-	int CheckBoundary(Offsets nextPosition);//(0<= a <= 7 && 0 <= b <= 7)이면 return 1
+	int CheckBoundary(Offsets nextPosition);
+	int CheckNext(Offsets nextPosition);
+	//(0<= a <= 7 && 0 <= b <= 7)이면 return 1
 	void SimpleMark(const Offsets chess);//(*Term)++; 한번 방문시마다 1 증가
 	void Mark(const Offsets chess, int n);//(*Term)++; 한번 방문시마다 1 증가
 	friend ostream& operator << (ostream& stream, Chessboard& s);
